@@ -1,8 +1,9 @@
+using GameJam.Tools;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 
-namespace Eindopdracht
+namespace GameJam.Game
 {
     public class LevelLoader
     {

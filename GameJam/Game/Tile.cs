@@ -1,6 +1,6 @@
 using System.Drawing;
 
-namespace Eindopdracht
+namespace GameJam.Game
 {
     public class Tile
     {

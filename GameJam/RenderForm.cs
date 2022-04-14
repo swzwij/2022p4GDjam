@@ -1,3 +1,5 @@
+using GameJam.Game;
+using GameJam.Tools;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -5,7 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Eindopdracht
+namespace GameJam
 {
     public partial class RenderForm : Form
     {
@@ -68,7 +70,7 @@ namespace Eindopdracht
                 (gc.tileSize * gc.room.tiles.Length) * gc.scaleunit
                 );
         }
-        
+
         private void RenderForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.W)
@@ -101,7 +103,7 @@ namespace Eindopdracht
             {
                 if (next.graphic == 'D')
                 {
-                   gc. room = levelLoader.GetRoom(gc.room.roomx + x, gc.room.roomy + y);
+                    gc.room = levelLoader.GetRoom(gc.room.roomx + x, gc.room.roomy + y);
 
                     if (y != 0)
                     {

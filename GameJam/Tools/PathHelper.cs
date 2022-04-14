@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace Eindopdracht
+namespace GameJam.Tools
 {
     public static class PathHelper
     {

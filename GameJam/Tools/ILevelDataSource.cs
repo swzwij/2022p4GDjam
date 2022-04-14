@@ -1,4 +1,4 @@
-namespace Eindopdracht
+namespace GameJam.Tools
 {
     public interface ILevelDataSource
     {

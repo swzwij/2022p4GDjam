@@ -1,5 +1,5 @@
 
-namespace Eindopdracht
+namespace GameJam
 {
     partial class RenderForm
     {

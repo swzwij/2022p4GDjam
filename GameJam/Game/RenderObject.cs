@@ -1,7 +1,7 @@
 using System;
 using System.Drawing;
 
-namespace Eindopdracht
+namespace GameJam.Game
 {
     class RenderObject
     {

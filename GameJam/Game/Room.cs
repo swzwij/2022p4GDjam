@@ -1,4 +1,4 @@
-namespace Eindopdracht
+namespace GameJam.Game
 {
     public class Room
     {
