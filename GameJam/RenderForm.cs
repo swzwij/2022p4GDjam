@@ -16,7 +16,7 @@ namespace GameJam
         private LevelLoader levelLoader;
         private float frametime;
         private GameRenderer renderer;
-        private GameContext gc = new GameContext();
+        private readonly GameContext gc = new GameContext();
         public RenderForm()
         {
             InitializeComponent();

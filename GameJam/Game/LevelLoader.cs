@@ -9,7 +9,7 @@ namespace GameJam.Game
     {
         private readonly ILevelDataSource levelDataSource;
         private readonly int size;
-        private Dictionary<string, Room> rooms = new Dictionary<string, Room>();
+        private readonly Dictionary<string, Room> rooms = new Dictionary<string, Room>();
         public LevelLoader(int size, ILevelDataSource levelDataSource)
         {
             this.levelDataSource = levelDataSource;
