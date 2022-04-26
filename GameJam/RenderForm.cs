@@ -28,8 +28,6 @@ namespace GameJam
 
             KeyDown += RenderForm_KeyDown;
             FormClosing += Form1_FormClosing;
-            //Resize += RenderForm_Resize;
-            //SizeChanged += RenderForm_SizeChanged;
             Load += RenderForm_Load;
         }
 

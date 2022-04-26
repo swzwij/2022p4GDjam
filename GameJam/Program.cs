@@ -12,13 +12,10 @@ namespace GameJam
     static class Program
     {
         static bool IsRunning = true;
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
+
         [STAThread]
         static void Main()
         {
-            //Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -33,12 +30,10 @@ namespace GameJam
                 form.Logic(frametime);
                 form.Invalidate();
                 Application.DoEvents();
-                //Thread.Sleep(33);
 
 
                 DateTime next = DateTime.Now;
                 double totalMilliseconds = next.Subtract(dateTime).TotalMilliseconds;
-                //Debug.WriteLine(totalMilliseconds);
                 if (totalMilliseconds == 0)
                 {
                     totalMilliseconds = 1;
