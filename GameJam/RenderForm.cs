@@ -21,8 +21,6 @@ namespace GameJam
         {
             InitializeComponent();
 
-
-
             DoubleBuffered = true;
             ResizeRedraw = true;
 
