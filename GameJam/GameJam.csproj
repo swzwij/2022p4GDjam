@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Game\SpriteMap.cs" />
     <Compile Include="Tools\FileLevelDataSource.cs" />
     <Compile Include="Game\GameContext.cs" />
     <Compile Include="Game\GameRenderer.cs" />

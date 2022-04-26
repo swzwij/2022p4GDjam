@@ -1,7 +1,6 @@
 using GameJam.Game;
 using GameJam.Tools;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -9,22 +8,18 @@ using System.Windows.Forms;
 
 namespace GameJam
 {
+
     public partial class RenderForm : Form
     {
 
 
         private LevelLoader levelLoader;
-        private readonly Dictionary<char, Rectangle> tileMap = new Dictionary<char, Rectangle>();
         private float frametime;
         private GameRenderer renderer;
         private GameContext gc = new GameContext();
         public RenderForm()
         {
             InitializeComponent();
-            tileMap.Add('#', new Rectangle(45, 75, 16, 16));
-            tileMap.Add('.', new Rectangle(23, 75, 16, 16));
-            tileMap.Add('D', new Rectangle(2, 75, 16, 16));
-            tileMap.Add('!', new Rectangle(66, 75, 16, 16));
 
 
 
@@ -45,20 +40,15 @@ namespace GameJam
         private void RenderForm_Load(object sender, EventArgs e)
         {
             levelLoader = new LevelLoader(gc.tileSize, new FileLevelDataSource());
+            levelLoader.LoadRooms(gc.spriteMap.GetMap());
 
-            levelLoader.LoadRooms(tileMap);
             renderer = new GameRenderer(gc);
 
             gc.room = levelLoader.GetRoom(0, 0);
 
             gc.player = new RenderObject()
             {
-                frames = new Rectangle[]
-                {
-                    new Rectangle(43, 9, 16, 16),
-                    new Rectangle(60, 9, 16, 16),
-                    new Rectangle(77, 9, 16, 16)
-                },
+                frames = gc.spriteMap.GetPlayerFrames(),
                 rectangle = new Rectangle(2 * gc.tileSize, 2 * gc.tileSize, gc.tileSize, gc.tileSize),
             };
 
