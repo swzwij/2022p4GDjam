@@ -11,7 +11,6 @@ namespace GameJam
 
     public partial class RenderForm : Form
     {
-
         private bool dead;
         private LevelLoader levelLoader;
         private float frametime;
@@ -108,6 +107,8 @@ namespace GameJam
                         player.rectangle.X = newx;
                         player.rectangle.Y = newy;
                         bool dead = true;
+                        Console.WriteLine("DEAD");
+                        Application.Restart();
                     }
                     player.rectangle.X = newx;
                     player.rectangle.Y = newy;
