@@ -12,7 +12,7 @@ namespace GameJam
     public partial class RenderForm : Form
     {
 
-
+        private bool dead;
         private LevelLoader levelLoader;
         private float frametime;
         private GameRenderer renderer;
@@ -103,6 +103,12 @@ namespace GameJam
 
                 else if (next.graphic != '#')
                 {
+                    if(next.graphic == '*')
+                    {
+                        player.rectangle.X = newx;
+                        player.rectangle.Y = newy;
+                        bool dead = true;
+                    }
                     player.rectangle.X = newx;
                     player.rectangle.Y = newy;
                 }

@@ -31,7 +31,7 @@ namespace GameJam
                 form.Invalidate();
                 Application.DoEvents();
 
-
+                if(bool dead == true) return;
                 DateTime next = DateTime.Now;
                 double totalMilliseconds = next.Subtract(dateTime).TotalMilliseconds;
                 if (totalMilliseconds == 0)
