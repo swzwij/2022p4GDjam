@@ -58,6 +58,7 @@ namespace GameJam
 
         private void RenderForm_KeyDown(object sender, KeyEventArgs e)
         {
+            if(dead == true && e.KeyCode == Keys.Enter) Application.Restart();
             if (e.KeyCode == Keys.W)
             {
                 MovePlayer(0, -1);
@@ -108,7 +109,6 @@ namespace GameJam
                         player.rectangle.Y = newy;
                         bool dead = true;
                         Console.WriteLine("DEAD");
-                        Application.Restart();
                     }
                     player.rectangle.X = newx;
                     player.rectangle.Y = newy;
