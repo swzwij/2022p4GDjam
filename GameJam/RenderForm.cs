@@ -24,6 +24,7 @@ namespace GameJam
             ResizeRedraw = true;
 
             KeyDown += RenderForm_KeyDown;
+
             FormClosing += Form1_FormClosing;
             Load += RenderForm_Load;
         }
@@ -58,23 +59,30 @@ namespace GameJam
 
         private void RenderForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if(dead == true && e.KeyCode == Keys.Enter) Application.Restart();
-            if (e.KeyCode == Keys.W)
+            if(dead)
             {
-                MovePlayer(0, -1);
+                Application.Restart();
             }
-            else if (e.KeyCode == Keys.S)
+            else if (!dead)
             {
-                MovePlayer(0, 1);
+                if (e.KeyCode == Keys.W)
+                {
+                    MovePlayer(0, -1);
+                }
+                else if (e.KeyCode == Keys.S)
+                {
+                    MovePlayer(0, 1);
+                }
+                else if (e.KeyCode == Keys.A)
+                {
+                    MovePlayer(-1, 0);
+                }
+                else if (e.KeyCode == Keys.D)
+                {
+                    MovePlayer(1, 0);
+                }
             }
-            else if (e.KeyCode == Keys.A)
-            {
-                MovePlayer(-1, 0);
-            }
-            else if (e.KeyCode == Keys.D)
-            {
-                MovePlayer(1, 0);
-            }
+            
         }
 
         private void MovePlayer(int x, int y)
@@ -100,16 +108,15 @@ namespace GameJam
                         player.rectangle.X += -x * ((gc.room.tiles[0].Length - 2) * gc.tileSize);
                     }
                 }
+                else if(next.graphic == '*')
+                    {
+                        dead = true;
+                        player.rectangle.X = newx;
+                        player.rectangle.Y = newy;
+                    }
 
                 else if (next.graphic != '#')
                 {
-                    if(next.graphic == '*')
-                    {
-                        player.rectangle.X = newx;
-                        player.rectangle.Y = newy;
-                        bool dead = true;
-                        Console.WriteLine("DEAD");
-                    }
                     player.rectangle.X = newx;
                     player.rectangle.Y = newy;
                 }
