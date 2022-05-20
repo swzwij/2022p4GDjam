@@ -13,6 +13,8 @@ namespace GameJam.Game
         {
 
             tileMap.Add('#', new Rectangle(45, 75, 16, 16));
+            tileMap.Add('/', new Rectangle(45, 94, 16, 16));
+            tileMap.Add('|', new Rectangle(45, 113, 16, 16));
             tileMap.Add('.', new Rectangle(23, 75, 16, 16));
             tileMap.Add('D', new Rectangle(2, 75, 16, 16));
             tileMap.Add('!', new Rectangle(66, 75, 16, 16));

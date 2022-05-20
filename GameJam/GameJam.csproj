@@ -100,6 +100,9 @@
     <Content Include="leveldata\room.1.0.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="leveldata\room.2.0.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="sprites.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
