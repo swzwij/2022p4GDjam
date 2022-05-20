@@ -1,5 +1,6 @@
 using GameJam.Game;
 using GameJam.Tools;
+using NAudio.Wave;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -8,7 +9,6 @@ using System.Windows.Forms;
 
 namespace GameJam
 {
-
     public partial class RenderForm : Form
     {
 
@@ -16,6 +16,7 @@ namespace GameJam
         private LevelLoader levelLoader;
         private float frametime;
         private GameRenderer renderer;
+        private Audio audio;
         private readonly GameContext gc = new GameContext();
         public RenderForm()
         {
@@ -24,14 +25,17 @@ namespace GameJam
             DoubleBuffered = true;
             ResizeRedraw = true;
 
+            //audio = new Audio();
             KeyDown += RenderForm_KeyDown;
             FormClosing += Form1_FormClosing;
             Load += RenderForm_Load;
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             renderer.Dispose();
+            audio.Dispose();
         }
         private void RenderForm_Load(object sender, EventArgs e)
         {
