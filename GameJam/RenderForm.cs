@@ -71,19 +71,19 @@ namespace GameJam
 
             if (!dead)
             {
-                if (e.KeyCode == Keys.W)
+                if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
                 {
                     MovePlayer(0, -1);
                 }
-                else if (e.KeyCode == Keys.S)
+                else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
                 {
                     MovePlayer(0, 1);
                 }
-                else if (e.KeyCode == Keys.A)
+                else if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
                 {
                     MovePlayer(-1, 0);
                 }
-                else if (e.KeyCode == Keys.D)
+                else if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
                 {
                     MovePlayer(1, 0);
                 }
