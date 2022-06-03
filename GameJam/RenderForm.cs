@@ -16,6 +16,7 @@ namespace GameJam
         private float frametime;
         private GameRenderer renderer;
         private readonly GameContext gc = new GameContext();
+        private float timer;
         public RenderForm()
         {
             InitializeComponent();
@@ -103,6 +104,8 @@ namespace GameJam
                 if (next.graphic == 'D')
                 {
                     gc.room = levelLoader.GetRoom(gc.room.roomx + x, gc.room.roomy + y);
+
+                    renderer.timer += 10;
 
                     if (y != 0)
                     {

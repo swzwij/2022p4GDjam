@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Threading;
+using System.Diagnostics;
 
 namespace GameJam.Game
 {
@@ -12,22 +13,13 @@ namespace GameJam.Game
         private float frametime;
         public Font textFont;
         private readonly Image image;
-        public int timer = 20;
+        public float timer = 20;
 
         public GameRenderer(GameContext context)
         {
             this.context = context;
 
             image = Bitmap.FromFile("sprites.png");
-        }
-
-        static void Main()
-        {
-            for (int i = 0; i < 20; i++)
-            {
-                Thread.Sleep(1000);
-                timer -= 1;
-            }
         }
 
         private Graphics InitGraphics(PaintEventArgs e)
@@ -49,11 +41,18 @@ namespace GameJam.Game
         {
             this.frametime = frametime;
 
+            timer -= frametime;
+
             Graphics g = InitGraphics(e);
             RenderRoom(g);
             RenderObject(g, context.player);
 
-            g.DrawString(timer.ToString(), textFont, Brushes.White, 0, 206);
+            float timerFloat = timer;
+            int timerInt = (int)Math.Round(timerFloat);
+
+            if(timer <= 0) Application.Restart();
+
+            g.DrawString(timerInt.ToString(), textFont, Brushes.White, 0, 206);
         }
 
         private void RenderRoom(Graphics g)

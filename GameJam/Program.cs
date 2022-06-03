@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace GameJam
 {
-    static class Program
+    public class Program
     {
         static bool IsRunning = true;
 
@@ -50,6 +50,5 @@ namespace GameJam
             IsRunning = false;
         }
     }
-
 }
 
