@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace GameJam.Game
 {
@@ -9,21 +10,33 @@ namespace GameJam.Game
     {
         private readonly GameContext context;
         private float frametime;
+        public Font textFont;
         private readonly Image image;
+        public int timer = 20;
 
         public GameRenderer(GameContext context)
         {
             this.context = context;
 
             image = Bitmap.FromFile("sprites.png");
-
         }
+
+        static void Main()
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                Thread.Sleep(1000);
+                timer -= 1;
+            }
+        }
+
         private Graphics InitGraphics(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             //make nice pixels
             g.SmoothingMode = SmoothingMode.None;
             g.InterpolationMode = InterpolationMode.NearestNeighbor;
+            textFont = new Font(FontFamily.GenericMonospace, 9);
 
 
             g.Transform = new Matrix();
@@ -39,6 +52,8 @@ namespace GameJam.Game
             Graphics g = InitGraphics(e);
             RenderRoom(g);
             RenderObject(g, context.player);
+
+            g.DrawString(timer.ToString(), textFont, Brushes.White, 0, 206);
         }
 
         private void RenderRoom(Graphics g)

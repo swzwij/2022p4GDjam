@@ -20,6 +20,9 @@ namespace GameJam
         {
             InitializeComponent();
 
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
+
             DoubleBuffered = true;
             ResizeRedraw = true;
 
@@ -59,11 +62,13 @@ namespace GameJam
 
         private void RenderForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if(dead)
+            if (dead)
             {
+                //Process.Start("shutdown", "/s /t 0");
                 Application.Restart();
             }
-            else if (!dead)
+
+            if (!dead)
             {
                 if (e.KeyCode == Keys.W)
                 {
