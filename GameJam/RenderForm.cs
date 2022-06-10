@@ -17,6 +17,7 @@ namespace GameJam
         private GameRenderer renderer;
         private readonly GameContext gc = new GameContext();
         private float timer;
+        private int debug;
         public RenderForm()
         {
             InitializeComponent();
@@ -71,21 +72,26 @@ namespace GameJam
 
             if (!dead)
             {
+                if(e.KeyCode == Keys.Insert)
+                {
+                    if (debug == 1) debug = 2;
+                    else if (debug == 2) debug = 1;
+                }
                 if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
                 {
-                    MovePlayer(0, -1);
+                    MovePlayer(0, -1 * debug);
                 }
                 else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
                 {
-                    MovePlayer(0, 1);
+                    MovePlayer(0, 1 * debug);
                 }
                 else if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
                 {
-                    MovePlayer(-1, 0);
+                    MovePlayer(-1 * debug, 0);
                 }
                 else if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
                 {
-                    MovePlayer(1, 0);
+                    MovePlayer(1 * debug, 0);
                 }
             }
         }
