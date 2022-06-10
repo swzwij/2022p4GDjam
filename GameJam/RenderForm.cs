@@ -32,6 +32,7 @@ namespace GameJam
 
             FormClosing += Form1_FormClosing;
             Load += RenderForm_Load;
+            debug = 1;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -72,11 +73,6 @@ namespace GameJam
 
             if (!dead)
             {
-                if(e.KeyCode == Keys.Insert)
-                {
-                    if (debug == 1) debug = 2;
-                    else if (debug == 2) debug = 1;
-                }
                 if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
                 {
                     MovePlayer(0, -1 * debug);
@@ -92,6 +88,19 @@ namespace GameJam
                 else if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
                 {
                     MovePlayer(1 * debug, 0);
+                }
+                else if (e.KeyCode == Keys.Insert)
+                {
+                    if (debug == 1)
+                    {
+                        debug = 2;
+                        return;
+                    }
+                    else if (debug == 2)
+                    {
+                        debug = 1;
+                        return;
+                    }
                 }
             }
         }
