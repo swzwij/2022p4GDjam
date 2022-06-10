@@ -14,6 +14,7 @@ namespace GameJam.Game
         public Font textFont;
         private readonly Image image;
         public float timer = 20;
+        public bool debuging;
 
         public GameRenderer(GameContext context)
         {
@@ -28,7 +29,7 @@ namespace GameJam.Game
             //make nice pixels
             g.SmoothingMode = SmoothingMode.None;
             g.InterpolationMode = InterpolationMode.NearestNeighbor;
-            textFont = new Font(FontFamily.GenericMonospace, 9);
+            textFont = new Font("Comic Sans MS", 7);
 
 
             g.Transform = new Matrix();
@@ -50,9 +51,12 @@ namespace GameJam.Game
             float timerFloat = timer;
             int timerInt = (int)Math.Round(timerFloat);
 
-            if(timer <= 0) Application.Restart();
+            if (timer <= 0) Application.Restart();
 
             g.DrawString(timerInt.ToString(), textFont, Brushes.White, 0, 206);
+            if (debuging) g.DrawString("DEBUG", textFont, Brushes.White, 50, 206);
+            else g.DrawString("DEBUG", textFont, Brushes.White, 50, -206);
+
         }
 
         private void RenderRoom(Graphics g)
