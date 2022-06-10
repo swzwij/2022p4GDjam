@@ -28,7 +28,7 @@ namespace GameJam.Game
             //make nice pixels
             g.SmoothingMode = SmoothingMode.None;
             g.InterpolationMode = InterpolationMode.NearestNeighbor;
-            textFont = new Font(FontFamily.GenericMonospace, 9);
+            textFont = new Font("Comic Sans MS", 7);
 
 
             g.Transform = new Matrix();
