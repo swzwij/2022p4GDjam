@@ -88,7 +88,6 @@ namespace GameJam
                     MovePlayer(1, 0);
                 }
             }
-            
         }
 
         private void MovePlayer(int x, int y)
@@ -105,7 +104,7 @@ namespace GameJam
                 {
                     gc.room = levelLoader.GetRoom(gc.room.roomx + x, gc.room.roomy + y);
 
-                    renderer.timer += 10;
+                    renderer.timer += 20;
 
                     if (y != 0)
                     {
